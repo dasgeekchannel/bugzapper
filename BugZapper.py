@@ -15,16 +15,25 @@ lbl = Label(window, text="Bug Reporting Application\n Thank you for taking the t
 lbl.grid(column=0, row=0) # without defining the grid size text in lbl won't show
 lbl1 = Label(window, text="System Reports help narrow down the issue. Please choose one.")
 lbl1.grid(column=0, row=1)
-#Generate Report Buttons
-def clicked(): #defining action of command clicked for btnfullsys below
+#Define button actions
+def clicked_full(): #defining action of command clicked for btnfullsys below
     myCmd = 'ls -la > systemreport.txt' # define command and output result to a file named systemreport.txt/ testing with ls
     os.system(myCmd) #send command to shell
     btnfullsys.configure(text="Report Generated!") #message once clicked
-btnfullsys = Button(window, text="Include Full System Report (Best)", bg="orange", fg="red", command = clicked)
-btnfullsys.grid(column=0, row = 4)
-btnstart = Button(window, text="Include Startup Report Only (Specific)", bg = "orange", fg="green") #creates a button with text
+def clicked_start(): #defining action of command clicked for btnfullsys below
+    myCmd = 'ls -la > systemreport.txt' # define command and output result to a file named systemreport.txt/ testing with ls
+    os.system(myCmd) #send command to shell
+    btnstart.configure(text="Report Generated!") #message once clicked
+def clicked_hard(): #defining action of command clicked for btnfullsys below
+    myCmd = 'ls -la > systemreport.txt' # define command and output result to a file named systemreport.txt/ testing with ls
+    os.system(myCmd) #send command to shell
+    btnGPU.configure(text="Report Generated!") #message once clicked
+# Create GUI buttons and layout
+btnfullsys = Button(window, text="Include Full System Report (Best)", bg="orange", fg="red", command = clicked_full) #creates a button with text
+btnfullsys.grid(column=0, row = 4) #positions button within window
+btnstart = Button(window, text="Include Startup Report Only (Specific)", bg = "orange", fg="green", command = clicked_start) #creates a button with text
 btnstart.grid(column=0, row=5) #positions button within window
-btnGPU = Button(window, text="Include Hardware Report Only (Specific)", bg = "orange", fg="green") #creates a button with text
+btnGPU = Button(window, text="Include Hardware Report Only (Specific)", bg = "orange", fg="green", command = clicked_hard) #creates a button with text
 btnGPU.grid(column=0, row=6, padx=0, pady=0) #positions button within window
 # Text Entry
 lbltxt1 = Label(window, padx=0, pady=10, text="Problem Description: ")
