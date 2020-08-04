@@ -1,7 +1,7 @@
 # BugZapper is a proof of concept project for bug reporting
 # Made for Pop!_OS but meant to be forked and modified
 # Created by DasGeek (Destination Linux Network)
-
+#!/usr/bin/python
 
 from tkinter import * #import GUI tool tkinter
 from tkinter import scrolledtext #import scrolled text module
@@ -26,16 +26,9 @@ btnGPU.grid(column=0, row=6, padx=0, pady=0) #positions button within window
 # Text Entry
 lbltxt1 = Label(window, padx=0, pady=10, text="Problem Description: ")
 lbltxt1.grid(column=0, row=13)
-txt1 = scrolledtext.ScrolledText(window,width=40,height=5, bg = "white smoke")
+txt1 = scrolledtext.ScrolledText(window,width=40,height=15, bg = "white smoke")
 txt1.grid(column=0, row=14, padx=0, pady=10)
-txt1.insert(INSERT,'Enter Steps To Recreate Issue Here: ')
-# Radio Button Options
-rad1 = Radiobutton(window,text='First', value=1)
-rad2 = Radiobutton(window,text='Second', value=2)
-rad3 = Radiobutton(window,text='Third', value=3)
-rad1.grid(columnspan=12,row=16, column=0)
-rad2.grid(columnspan=2,row=19, column=0)
-rad3.grid(columnspan=2,row=30, column=0)
+txt1.insert(INSERT,'Enter Steps To Recreate Issue Here: \n \n \n \nDoes the issue happen everytime\nor infrequently?: \n \n \n \nWhat error messages do you receive?: ')
 
 
 # Keep Window Open Loop
