@@ -3,6 +3,7 @@
 # Created by DasGeek (Destination Linux Network)
 #!/usr/bin/python
 
+import os
 from tkinter import * #import GUI tool tkinter
 from tkinter import scrolledtext #import scrolled text module
 # setup windows
@@ -16,6 +17,8 @@ lbl1 = Label(window, text="System Reports help narrow down the issue. Please cho
 lbl1.grid(column=0, row=1)
 #Generate Report Buttons
 def clicked(): #defining action of command clicked for btnfullsys below
+    myCmd = 'ls -la > systemreport.txt' # define command and output result to a file named systemreport.txt/ testing with ls
+    os.system(myCmd) #send command to shell
     btnfullsys.configure(text="Report Generated!") #message once clicked
 btnfullsys = Button(window, text="Include Full System Report (Best)", bg="orange", fg="red", command = clicked)
 btnfullsys.grid(column=0, row = 4)
@@ -28,7 +31,7 @@ lbltxt1 = Label(window, padx=0, pady=10, text="Problem Description: ")
 lbltxt1.grid(column=0, row=13)
 txt1 = scrolledtext.ScrolledText(window,width=40,height=15, bg = "white smoke")
 txt1.grid(column=0, row=14, padx=0, pady=10)
-txt1.insert(INSERT,'Enter Steps To Recreate Issue Here: \n \n \n \nDoes the issue happen everytime\nor infrequently?: \n \n \n \nWhat error messages do you receive?: ')
+txt1.insert(INSERT,'Enter Steps To Recreate Issue Here: \n \n \n \nDoes the issue happen everytime\nor infrequently?: \n \n \n \nWhat error messages do you receive?: \n ')
 
 
 # Keep Window Open Loop
